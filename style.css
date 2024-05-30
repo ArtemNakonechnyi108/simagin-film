@@ -113,7 +113,7 @@ header {
   align-items: center;
   flex-flow: column;
   text-align: center;
-  z-index: 1000;
+  z-index: 1000 !important;
 }
 
 header .user img {
@@ -169,7 +169,7 @@ header .navbar ul li a:hover {
   cursor: pointer;
   font-size: var(--medium-fz);
   padding: 1rem 1.5rem;
-  z-index: 2000 !important;
+  z-index: 1000 !important;
   border-radius: 0.5rem;
   display: none;
 }
@@ -201,7 +201,7 @@ header .navbar ul li a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1 !important;
+  z-index: -1;
 }
 
 .container .content {
@@ -215,7 +215,7 @@ header .navbar ul li a:hover {
   text-align: center;
   background: rgba(0, 0, 0, 0.1);
   color: #fff;
-  z-index: 1;
+  z-index: 100 !important;
 }
 
 .container .content h1 {
@@ -445,7 +445,7 @@ header .navbar ul li a:hover {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10001 !important;
+  z-index: 1000;
 
   background: rgba(0, 0, 0, 0.9);
   height: 100%;
@@ -472,7 +472,7 @@ header .navbar ul li a:hover {
   font-size: 50px;
   color: #fff;
   font-weight: normal;
-  z-index: 10001;
+  z-index: 10001 !important;
   cursor: pointer;
 }
 /* portfolio section end */
@@ -532,12 +532,27 @@ header .navbar ul li a:hover {
 /* contact section end */
 
 /* footer section start */
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 0; /* Добавляем отступы */
+}
+
 .social-links {
-  text-align: center;
+  display: flex;
+  justify-content: center; /* Центрируем значки по горизонтали */
+
   padding: 0rem 0rem 3rem;
 }
 
 .social-links a {
+  display: flex;
+  justify-content: center; /* Центрируем содержимое значков по горизонтали */
+  align-items: center; /* Центрируем содержимое значков по вертикали */
+
   margin: 0rem 0.3rem;
   width: 4.5rem;
   height: 4.5rem;
@@ -662,9 +677,16 @@ header .navbar ul li a:hover {
     padding-right: 0rem;
   }
 
-  @keyframes slide {
+  .social-links a {
+    width: 3.5rem; /* Изменяем размер значков для небольших экранов */
+    height: 3.5rem;
+    line-height: 3.5rem;
+    font-size: calc(var(--medium-fz) - 0.5rem); /* Уменьшаем размер текста */
+  }
+
+  /* @keyframes slide {
     100% {
       top: -16rem;
     }
-  }
+  } */
 }
