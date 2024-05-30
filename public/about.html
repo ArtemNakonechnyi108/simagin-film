@@ -1,0 +1,127 @@
+<head>
+  <link rel="stylesheet" href="../style.css" />
+
+  <!-- font link -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito"
+    rel="stylesheet"
+    type="text/css"
+  />
+
+  <!-- fonawesome link -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+</head>
+<body>
+  <!-- header section start  -->
+
+  <header>
+    <div class="user">
+      <img src="../img/user.jpg" />
+      <h3 class="name">Oleg simagin</h3>
+      <p>Foto-video operator</p>
+    </div>
+
+    <nav class="navbar">
+      <ul>
+        <li class="btn-close"><a href="../index.html">home</a></li>
+        <li class="btn-close"><a href="../public/about.html">about</a></li>
+        <li class="btn-close">
+          <a href="portfolio.html">portfolio</a>
+        </li>
+        <li class="btn-close"><a href="#reviews">reviews</a></li>
+        <li class="btn-close"><a href="../public/contact.html">contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div id="menu" class="fas fa-bars"></div>
+
+  <!-- header section end  -->
+
+  <!-- /* about section start */ -->
+
+  <section id="about" class="about">
+    <h3 class="heading"><span>About</span> me</h3>
+    <div class="row">
+      <div class="info">
+        <h4><span>name:</span> Oleg Simagin</h4>
+        <h4><span>age:</span>38</h4>
+        <h4><span>Profession:</span> foto-video operator</h4>
+        <h4><span>qualification:</span> expert</h4>
+      </div>
+      <div class="info-box">
+        <div class="box">
+          <span>10+</span>
+          <h3>years of experience</h3>
+        </div>
+        <div class="box">
+          <span>250+</span>
+          <h3>projects</h3>
+        </div>
+        <div class="box">
+          <span>300+</span>
+          <h3>clients</h3>
+        </div>
+        <div class="box">
+          <span>100+</span>
+          <h3>hours spent filming in the air</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /* about section end */ -->
+
+  <!-- education section start -->
+  <section id="education" class="education">
+    <h3 class="heading">my <span>experience</span></h3>
+    <div class="box-container">
+      <div class="box">
+        <i class="fas fa-graduation-cap"></i>
+        <span>2023</span>
+        <h3>Web deweloper</h3>
+        <p>
+          It was popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.
+        </p>
+      </div>
+      <div class="box">
+        <i class="fas fa-graduation-cap"></i>
+        <span>2024</span>
+        <h3>Web deweloper</h3>
+        <p>
+          It was popularised in the 1960s with the release of Letraset sheets
+          containing Lorem Ipsum passages, and more recently with desktop
+          publishing software like Aldus PageMaker including versions of Lorem
+          Ipsum.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- education section end -->
+
+  <script>
+    let menu = document.querySelector("#menu");
+    let openMenu = document.querySelector("header");
+    let blockBody = document.querySelector("body");
+    let headerItems = document.querySelectorAll(".btn-close");
+
+    menu.onclick = () => {
+      menu.classList.toggle("fa-times");
+      openMenu.classList.toggle("active");
+      blockBody.classList.toggle("active");
+    };
+
+    headerItems.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("fa-times");
+        blockBody.classList.toggle("active");
+
+        openMenu.classList.remove("active");
+      });
+    });
+  </script>
+</body>

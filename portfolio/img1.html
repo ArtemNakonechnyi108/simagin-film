@@ -1,0 +1,95 @@
+<head>
+  <link rel="stylesheet" href="../style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css"
+  />
+
+  <!-- font link -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito"
+    rel="stylesheet"
+    type="text/css"
+  />
+
+  <!-- fonawesome link -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+</head>
+
+<body>
+  <!-- header section start  -->
+
+  <header>
+    <div class="user">
+      <img src="../img/user.jpg" />
+      <h3 class="name">Oleg simagin</h3>
+      <p>Foto-video operator</p>
+    </div>
+
+    <nav class="navbar">
+      <ul>
+        <li class="btn-close"><a href="../index.html">home</a></li>
+        <li class="btn-close"><a href="../public/about.html">about</a></li>
+        <li class="btn-close">
+          <a href="../public/portfolio.html">portfolio</a>
+        </li>
+        <li class="btn-close"><a href="#reviews">reviews</a></li>
+        <li class="btn-close"><a href="../public/contact.html">contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div id="menu" class="fas fa-bars"></div>
+
+  <!-- header section end  -->
+
+  <h3 class="heading">foto <span>gallery</span></h3>
+
+  <section class="gallery">
+    <a href="img1/img-1.jpg">
+      <img src="img1/img-1.jpg" />
+    </a>
+    <a href="img1/img-2.jpg">
+      <img src="img1/img-2.jpg" />
+    </a>
+    <a href="img1/img-3.jpg">
+      <img src="img1/img-3.jpg" />
+    </a>
+    <a href="img1/img-4.jpg">
+      <img src="img1/img-4.jpg" />
+    </a>
+    <a href="img1/img-5.jpg">
+      <img src="img1/img-5.jpg" />
+    </a>
+    <a href="img1/img-6.jpg">
+      <img src="img1/img-6.jpg" />
+    </a>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+  <script>
+    lightGallery(document.querySelector(".gallery"));
+
+    let menu = document.querySelector("#menu");
+    let openMenu = document.querySelector("header");
+    let blockBody = document.querySelector("body");
+    let headerItems = document.querySelectorAll(".btn-close");
+
+    menu.onclick = () => {
+      menu.classList.toggle("fa-times");
+      openMenu.classList.toggle("active");
+      blockBody.classList.toggle("active");
+    };
+
+    headerItems.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("fa-times");
+        blockBody.classList.toggle("active");
+
+        openMenu.classList.remove("active");
+      });
+    });
+  </script>
+</body>

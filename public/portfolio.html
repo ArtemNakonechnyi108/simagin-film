@@ -1,0 +1,99 @@
+<head>
+  <link rel="stylesheet" href="../style.css" />
+
+  <!-- font link -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito"
+    rel="stylesheet"
+    type="text/css"
+  />
+
+  <!-- fonawesome link -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+</head>
+<body>
+  <!-- header section start  -->
+
+  <header>
+    <div class="user">
+      <img src="../img/user.jpg" />
+      <h3 class="name">Oleg simagin</h3>
+      <p>Foto-video operator</p>
+    </div>
+
+    <nav class="navbar">
+      <ul>
+        <li class="btn-close"><a href="../index.html">home</a></li>
+        <li class="btn-close"><a href="../public/about.html">about</a></li>
+        <li class="btn-close">
+          <a href="#portfolio">portfolio</a>
+        </li>
+        <li class="btn-close"><a href="#reviews">reviews</a></li>
+        <li class="btn-close"><a href="../public/contact.html">contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div id="menu" class="fas fa-bars"></div>
+
+  <!-- header section end  -->
+
+  <section id="portfolio" class="portfolio">
+    <h3 class="heading">my <span>portfolio</span></h3>
+    <div class="box-container">
+      <div class="box">
+        <a href="../portfolio/img1.html">
+          <img src="../img/MainImg_1.png" />
+          <div class="overlay-text">photos from spiritual events</div>
+        </a>
+      </div>
+      <div class="box">
+        <img src="../img/MainImg_2.png" />
+        <div class="overlay-text">business photo</div>
+      </div>
+      <div class="box">
+        <a href="../portfolio/video1.html">
+          <img src="../img/MainImg_3.png" />
+          <div class="overlay-text">creative videos</div>
+        </a>
+      </div>
+      <div class="box">
+        <img src="../img/MainImg_4.png" />
+        <div class="overlay-text">drone video</div>
+      </div>
+      <div class="box">
+        <img src="../img/MainImg_5.png" />
+        <div class="overlay-text">portrait photos</div>
+      </div>
+      <div class="box">
+        <img src="../img/MainImg_6.png" />
+        <div class="overlay-text">wedding photo</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    let menu = document.querySelector("#menu");
+    let openMenu = document.querySelector("header");
+    let blockBody = document.querySelector("body");
+    let headerItems = document.querySelectorAll(".btn-close");
+
+    menu.onclick = () => {
+      menu.classList.toggle("fa-times");
+      openMenu.classList.toggle("active");
+      blockBody.classList.toggle("active");
+    };
+
+    headerItems.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("fa-times");
+        blockBody.classList.toggle("active");
+
+        openMenu.classList.remove("active");
+      });
+    });
+  </script>
+</body>
