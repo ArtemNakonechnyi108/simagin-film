@@ -534,6 +534,7 @@ header .navbar ul li a:hover {
 /* footer section start */
 
 footer {
+  z-index: -1 !important;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -655,6 +656,11 @@ footer {
 } */
 
 @media (max-width: 400px) {
+  .portfolio .popup-video span {
+    right: 75px !important;
+    z-index: 10000 !important;
+  }
+
   header {
     width: 100vw;
   }
