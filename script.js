@@ -3,6 +3,14 @@ let openMenu = document.querySelector("header");
 let blockBody = document.querySelector("body");
 let headerItems = document.querySelectorAll(".btn-close");
 
+// Показать основной контент после полной загрузки страницы
+window.onload = function () {
+  document.body.style.display = "block";
+  document.getElementById("preloader").style.display = "none";
+};
+
+//HEADER ACTIVE
+
 menu.onclick = () => {
   menu.classList.toggle("fa-times");
   openMenu.classList.toggle("active");

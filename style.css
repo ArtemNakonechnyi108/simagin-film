@@ -39,7 +39,7 @@ img {
 
 body {
   height: 100%;
-
+  display: none;
   background: #222;
   padding-left: 35rem;
 }
