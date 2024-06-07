@@ -94,25 +94,5 @@
   </section>
   <!-- contact section end -->
 
-  <script>
-    let menu = document.querySelector("#menu");
-    let openMenu = document.querySelector("header");
-    let blockBody = document.querySelector("body");
-    let headerItems = document.querySelectorAll(".btn-close");
-
-    menu.onclick = () => {
-      menu.classList.toggle("fa-times");
-      openMenu.classList.toggle("active");
-      blockBody.classList.toggle("active");
-    };
-
-    headerItems.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        menu.classList.toggle("fa-times");
-        blockBody.classList.toggle("active");
-
-        openMenu.classList.remove("active");
-      });
-    });
-  </script>
+  <script src="../script.js"></script>
 </body>

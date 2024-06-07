@@ -69,27 +69,9 @@
   </section>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+  <script src="../script.js"></script>
   <script>
+    //element for light gallery
     lightGallery(document.querySelector(".gallery"));
-
-    let menu = document.querySelector("#menu");
-    let openMenu = document.querySelector("header");
-    let blockBody = document.querySelector("body");
-    let headerItems = document.querySelectorAll(".btn-close");
-
-    menu.onclick = () => {
-      menu.classList.toggle("fa-times");
-      openMenu.classList.toggle("active");
-      blockBody.classList.toggle("active");
-    };
-
-    headerItems.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        menu.classList.toggle("fa-times");
-        blockBody.classList.toggle("active");
-
-        openMenu.classList.remove("active");
-      });
-    });
   </script>
 </body>

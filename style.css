@@ -1,8 +1,8 @@
 :root {
-  --main-clr: deepskyblue;
+  --main-clr: #fff;
   --box-shadow: 0rem, 0.5rem, 0.5rem, rgba(0, 0, 0, 0.3);
-  --glowing-bxs: 0 0 0.1rem deepskyblue, 0 0 0.2rem deepskyblue,
-    0 0 0.3rem deepskyblue, 0 0 0.5rem deepskyblue;
+  --glowing-bxs: 0 0 0.1rem #fff, 0 0 0.2rem #fff, 0 0 0.3rem #fff,
+    0 0 0.5rem #fff;
   --heading: calc(25px + (50 - 25) * (100vw - 300px) / (1500 - 300));
   --big-fz: calc(30px + (100 - 30) * (100vw - 300px) / (1500 - 300));
   --large-fz: calc(30px + (80 - 30) * (100vw - 300px) / (1500 - 300));
@@ -127,7 +127,7 @@ header .user img {
 }
 
 header .user .name {
-  color: #fff;
+  color: rgba(16, 67, 159, 1);
   font-size: var(--user-name-fz);
 }
 
@@ -158,6 +158,7 @@ header .navbar ul li a {
 
 header .navbar ul li a:hover {
   background: var(--main-clr);
+  color: #333;
 }
 
 #menu {
@@ -172,6 +173,11 @@ header .navbar ul li a:hover {
   z-index: 1000 !important;
   border-radius: 0.5rem;
   display: none;
+}
+
+#menu:hover {
+  background: #fff;
+  color: #333;
 }
 
 /* header section end */
@@ -220,13 +226,14 @@ header .navbar ul li a:hover {
 
 .container .content h1 {
   font-size: calc(60px + (80 - 60) * ((100vw - 300px) / (1600 - 300)));
-  color: #10439f;
+  color: rgba(16, 67, 159, 0.7);
 }
 
 .container .content h3 {
   font-size: calc(30px + (50 - 30) * ((100vw - 300px) / (1600 - 300)));
   animation: animate 0.4s linear 0.4s backwards;
   padding: 1rem 10%;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 @keyframes animate {
@@ -394,11 +401,6 @@ header .navbar ul li a:hover {
 
 /* portfolio section start  */
 
-.portfolio {
-  position: relative;
-  height: 100vh; /* Установить высоту контейнера равной высоте окна браузера */
-}
-
 .portfolio .box-container {
   display: flex;
   justify-content: center;
@@ -445,7 +447,7 @@ header .navbar ul li a:hover {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 10000 !important;
 
   background: rgba(0, 0, 0, 0.9);
   height: 100%;
@@ -534,19 +536,17 @@ header .navbar ul li a:hover {
 /* footer section start */
 
 footer {
-  z-index: -1 !important;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  z-index: -1;
   width: 100%;
   padding: 1rem 0; /* Добавляем отступы */
+  bottom: 1rem;
 }
 
 .social-links {
   display: flex;
   justify-content: center; /* Центрируем значки по горизонтали */
-
   padding: 0rem 0rem 3rem;
+  align-items: center; /* Центрируем содержимое значков по вертикали */
 }
 
 .social-links a {
@@ -622,10 +622,6 @@ footer {
   }
 }
 @media (min-width: 401px) and (max-width: 991px) {
-  .portfolio .popup-video span {
-    right: 75px !important;
-    z-index: 10000 !important;
-  }
   header {
     left: -120%;
   }
@@ -656,11 +652,6 @@ footer {
 } */
 
 @media (max-width: 400px) {
-  .portfolio .popup-video span {
-    right: 75px !important;
-    z-index: 10000 !important;
-  }
-
   header {
     width: 100vw;
   }
