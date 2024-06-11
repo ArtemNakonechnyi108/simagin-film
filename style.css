@@ -409,11 +409,13 @@ header .navbar ul li a:hover {
 }
 
 .portfolio .box-container .box {
-  flex: 1 1 25rem;
+  flex: 1 1 calc(30% - 2rem);
+  max-width: 45rem; /* Максимальная ширина для каждого окна */
+  min-width: 25rem;
   height: 25rem;
   border-radius: 2rem;
   border: 0.5rem solid var(--main-clr);
-  margin: 3rem;
+  margin: 1.5rem;
   box-shadow: var(--glowing-bxs);
   overflow: hidden;
   cursor: pointer;

@@ -23,29 +23,31 @@
   </head>
   <body>
     <!-- Preloader -->
-
     <div id="preloader">
-      <p>Loading...</p>
+      <p id="loading">Loading...</p>
     </div>
 
     <!-- header section start  -->
-
     <header>
       <div class="user">
         <img src="img/user.jpg" />
         <h3 class="name">Simagin Film Studio</h3>
-        <p>Foto-video operator</p>
+        <p id="role">Foto-video operator</p>
       </div>
 
       <nav class="navbar">
         <ul>
-          <li class="btn-close"><a href="#home">home</a></li>
-          <li class="btn-close"><a href="./public/about.html">about</a></li>
+          <li class="btn-close"><a href="#home" id="home">home</a></li>
           <li class="btn-close">
-            <a href="./public/portfolio.html">portfolio</a>
+            <a href="./public/about.html" id="about">about</a>
           </li>
-          <li class="btn-close"><a href="#reviews">reviews</a></li>
-          <li class="btn-close"><a href="./public/contact.html">contact</a></li>
+          <li class="btn-close">
+            <a href="./public/portfolio.html" id="portfolio">portfolio</a>
+          </li>
+          <li class="btn-close"><a href="#reviews" id="reviews">reviews</a></li>
+          <li class="btn-close">
+            <a href="./public/contact.html" id="contact">contact</a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -53,12 +55,11 @@
     <!-- header section end -->
 
     <!-- home section start  -->
-
     <section id="home" class="home">
       <div class="container">
         <div class="content">
-          <h1>Simagin Film Studio</h1>
-          <h3>Video magic in every frame</h3>
+          <h1 class="name">Simagin Film Studio</h1>
+          <h3 id="video_magic">Video magic in every frame</h3>
         </div>
         <video
           src="video/MainVideo.mp4"
@@ -72,33 +73,38 @@
     <!-- home section end -->
 
     <!-- portfolio section start -->
-
     <section id="portfolio" class="portfolio">
-      <h3 class="heading">my <span>projects</span></h3>
+      <h3 class="heading" id="my_projects">my <span>projects</span></h3>
       <div class="box-container">
         <div class="box">
           <video src="./video/Alu-Final.mp4" poster="./img/ss_1.jpg"></video>
-          <div class="overlay-text">video for business</div>
+          <div class="overlay-text" id="video_for_business">
+            video for business
+          </div>
         </div>
         <div class="box">
           <video src="./video/MainVideo.mp4" poster="./img/ss_2.jpg"></video>
-          <div class="overlay-text">wedding video</div>
+          <div class="overlay-text" id="wedding_video">wedding video</div>
         </div>
         <div class="box">
           <video src="./video/famili.mp4" poster="./img/ss_3.jpg"></video>
-          <div class="overlay-text">family videos</div>
+          <div class="overlay-text" id="family_videos">family videos</div>
         </div>
         <div class="box">
           <video src="./video/Porsche_1.mp4" poster="./img/ss_4.jpg"></video>
-          <div class="overlay-text">car videos</div>
+          <div class="overlay-text" id="car_videos">car videos</div>
         </div>
         <div class="box">
           <video src="./video/2.mp4" muted></video>
-          <div class="overlay-text">some beutiful video</div>
+          <div class="overlay-text" id="some_beautiful_video">
+            some beutiful video
+          </div>
         </div>
         <div class="box">
           <video src="./video/4.mp4" muted></video>
-          <div class="overlay-text">some beutiful video</div>
+          <div class="overlay-text" id="some_beautiful_video">
+            some beutiful video
+          </div>
         </div>
       </div>
       <div class="popup-video">
@@ -120,10 +126,79 @@
         <a href="#" class="fab fa-youtube"></a>
       </div>
     </footer>
-
     <!-- footer section end -->
 
     <!-- script link -->
     <script src="script.js"></script>
+
+    <!-- translate -->
+    <script>
+      // Функция для загрузки и применения переводов
+      function loadTranslations(path) {
+        return fetch(path)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(
+                `Could not load translations for language: ${lang}`
+              );
+            }
+            return response.json();
+          })
+          .then((data) => applyTranslations(data))
+          .catch((error) => {
+            console.error(error);
+            // Если перевод не найден, можно загрузить перевод по умолчанию, например английский
+            if (lang !== "en") {
+              return loadTranslations("translations/en.json");
+            }
+          });
+      }
+
+      // Функция применения переводов
+      function applyTranslations(translations) {
+        document.getElementById("loading").textContent = translations.loading;
+        document.querySelectorAll(".name").forEach((element) => {
+          element.textContent = translations.name;
+        });
+        document.getElementById("role").textContent = translations.role;
+        document.getElementById("home").textContent = translations.home;
+        document.getElementById("about").textContent = translations.about;
+        document.getElementById("portfolio").textContent =
+          translations.portfolio;
+        document.getElementById("reviews").textContent = translations.reviews;
+        document.getElementById("contact").textContent = translations.contact;
+        document.getElementById("video_magic").textContent =
+          translations.video_magic;
+        document.getElementById("my_projects").innerHTML =
+          translations.my_projects;
+        document.getElementById("video_for_business").textContent =
+          translations.video_for_business;
+        document.getElementById("wedding_video").textContent =
+          translations.wedding_video;
+        document.getElementById("family_videos").textContent =
+          translations.family_videos;
+        document.getElementById("car_videos").textContent =
+          translations.car_videos;
+        document.querySelectorAll(".overlay-text").forEach((element, index) => {
+          if (index === 4 || index === 5) {
+            element.textContent = translations.some_beautiful_video;
+          }
+        });
+      }
+
+      // Определение языка пользователя
+      const userLang = navigator.language || navigator.userLanguage;
+      const lang = userLang.substring(0, 2); // Получаем первые 2 символа языка (например, 'en', 'ru', 'uk', 'de')
+
+      // Путь к JSON файлу с переводами
+      const translationsPath = `translations/${lang}.json`;
+
+      // Показать основной контент после полной загрузки страницы и загрузить переводы
+      window.onload = function () {
+        document.body.style.display = "block";
+        document.getElementById("preloader").style.display = "none";
+        loadTranslations(translationsPath);
+      };
+    </script>
   </body>
 </html>
